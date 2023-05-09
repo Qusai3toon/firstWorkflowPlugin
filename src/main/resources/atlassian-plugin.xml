@@ -2,9 +2,9 @@
 
 <atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
   <plugin-info> 
-    <description>${project.description}</description>  
+    <description>A plugin that creates child tasks based on the changes in the workflow, developed by Qusai Atoon for training purposes.</description>
     <version>${project.version}</version>  
-    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <vendor name="Inspire For Solutions Development" url="https://inspirejo.com"/>
     <param name="plugin-icon">images/pluginIcon.png</param>  
     <param name="plugin-logo">images/pluginLogo.png</param> 
   </plugin-info>  
@@ -18,7 +18,7 @@
     <resource type="download" name="images/" location="/images"/>  
     <context>firstWorkflowPlugin</context> 
   </web-resource>  
-  <workflow-function key="my-post-function" name="My Post Function" i18n-name-key="my-post-function.name" class="com.inspire.jira.workflow.MyPostFunctionFactory"> 
+  <workflow-function key="my-post-function" name="My Post Function" i18n-name-key="my-post-function.name" class="com.inspire.jira.workflow.MyPostFunctionFactory">
     <description key="my-post-function.description">The My Post Function Plugin</description>  
     <function-class>com.inspire.jira.workflow.MyPostFunction</function-class>  
     <resource type="velocity" name="view" location="templates/postfunctions/my-post-function.vm"/>  

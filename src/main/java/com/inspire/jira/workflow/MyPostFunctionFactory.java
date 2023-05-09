@@ -4,6 +4,7 @@ import com.atlassian.jira.plugin.workflow.AbstractWorkflowPluginFactory;
 import com.atlassian.jira.plugin.workflow.WorkflowPluginFunctionFactory;
 import com.atlassian.jira.workflow.JiraWorkflow;
 import com.atlassian.jira.workflow.WorkflowManager;
+import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.opensymphony.workflow.loader.*;
 import webwork.action.ActionContext;
 
@@ -21,6 +22,7 @@ public class MyPostFunctionFactory extends AbstractWorkflowPluginFactory impleme
 {
     public static final String FIELD_MESSAGE = "messageField";
 
+    @ComponentImport
     private WorkflowManager workflowManager;
 
     public MyPostFunctionFactory(WorkflowManager workflowManager) {
@@ -33,7 +35,7 @@ public class MyPostFunctionFactory extends AbstractWorkflowPluginFactory impleme
         final JiraWorkflow jiraWorkflow = workflowManager.getWorkflow(myParams.get("workflowName")[0]);
 
         //the default message
-        velocityParams.put(FIELD_MESSAGE, "Workflow Last Edited By " + jiraWorkflow.getUpdateAuthorName());
+        velocityParams.put(FIELD_MESSAGE, "Workflow Edited By " + jiraWorkflow.getUpdateAuthorName());
 
     }
 
