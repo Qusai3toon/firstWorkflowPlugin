@@ -1,4 +1,4 @@
-# My first Custom field. 
+# My first Workflow post function plugin module. 
 
 My First project on developing our own custom Plugins for Jira using the Atlassian Plugins SDK. 
 
