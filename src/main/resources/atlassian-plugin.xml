@@ -1,24 +1,28 @@
-<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
-    <plugin-info>
-        <description>${project.description}</description>
-        <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
-        <param name="plugin-icon">images/pluginIcon.png</param>
-        <param name="plugin-logo">images/pluginLogo.png</param>
-    </plugin-info>
+<?xml version="1.0" encoding="UTF-8"?>
 
-    <!-- add our i18n resource -->
-    <resource type="i18n" name="i18n" location="firstWorkflowPlugin"/>
-    
-    <!-- add our web resources -->
-    <web-resource key="firstWorkflowPlugin-resources" name="firstWorkflowPlugin Web Resources">
-        <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
-        <resource type="download" name="firstWorkflowPlugin.css" location="/css/firstWorkflowPlugin.css"/>
-        <resource type="download" name="firstWorkflowPlugin.js" location="/js/firstWorkflowPlugin.js"/>
-        <resource type="download" name="images/" location="/images"/>
-
-        <context>firstWorkflowPlugin</context>
-    </web-resource>
-    
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2"> 
+  <plugin-info> 
+    <description>${project.description}</description>  
+    <version>${project.version}</version>  
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>  
+    <param name="plugin-icon">images/pluginIcon.png</param>  
+    <param name="plugin-logo">images/pluginLogo.png</param> 
+  </plugin-info>  
+  <!-- add our i18n resource -->  
+  <resource type="i18n" name="i18n" location="firstWorkflowPlugin"/>  
+  <!-- add our web resources -->  
+  <web-resource key="firstWorkflowPlugin-resources" name="firstWorkflowPlugin Web Resources"> 
+    <dependency>com.atlassian.auiplugin:ajs</dependency>  
+    <resource type="download" name="firstWorkflowPlugin.css" location="/css/firstWorkflowPlugin.css"/>  
+    <resource type="download" name="firstWorkflowPlugin.js" location="/js/firstWorkflowPlugin.js"/>  
+    <resource type="download" name="images/" location="/images"/>  
+    <context>firstWorkflowPlugin</context> 
+  </web-resource>  
+  <workflow-function key="my-post-function" name="My Post Function" i18n-name-key="my-post-function.name" class="com.inspire.jira.workflow.MyPostFunctionFactory"> 
+    <description key="my-post-function.description">The My Post Function Plugin</description>  
+    <function-class>com.inspire.jira.workflow.MyPostFunction</function-class>  
+    <resource type="velocity" name="view" location="templates/postfunctions/my-post-function.vm"/>  
+    <resource type="velocity" name="input-parameters" location="templates/postfunctions/my-post-function-input.vm"/>  
+    <resource type="velocity" name="edit-parameters" location="templates/postfunctions/my-post-function-input.vm"/> 
+  </workflow-function>
 </atlassian-plugin>
